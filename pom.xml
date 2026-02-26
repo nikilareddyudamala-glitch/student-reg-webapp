@@ -23,15 +23,16 @@
 	</properties>
 
    <distributionManagement>
-		<repository>
-			<id>nexus</id>
-			<url>http://13.206.16.239:8081/repository/maven-releases/</url>
-		</repository>
-		<snapshotRepository>
-			<id>nexus</id>
-			<url>http://13.206.16.239:8081/#admin/repository/repositories:student-web-app/</url>
-		</snapshotRepository>
-    </distributionManagement>
+                <repository>
+                        <id>nexus</id>
+                        <url>http://13.206.16.239:8081/repository/maven-releases/</url>
+                </repository>
+                <snapshotRepository>
+                        <id>student-web-app</id>
+                        <url>http://13.206.16.239:8081/repository/student-web-app/</url>
+                </snapshotRepository>
+         </distributionManagement>
+
 
 	<dependencies>
 		<dependency>
