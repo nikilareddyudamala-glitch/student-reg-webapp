@@ -1,6 +1,10 @@
 pipeline {
     
     agent any
+    tools {
+      maven 'maven-3.9.12'
+    }
+
     
     triggers {
        githubPush()
@@ -49,7 +53,7 @@ pipeline {
         stage("Deploy War File To Tomcat"){
             
             when {
-                expression { env.BRANCH_NAME ==  "development" }
+                expression { env.BRANCH_NAME ==  "main" }
             }
 
             steps {
@@ -84,7 +88,7 @@ pipeline {
        stage("Deploy War File To Prod Server"){
              
             when {
-                expression { env.BRANCH_NAME ==  "main" }
+                expression { env.BRANCH_NAME ==  "development" }
             }
             steps {
               sshagent(['TomcatServer_SSH_Credetails']) {
