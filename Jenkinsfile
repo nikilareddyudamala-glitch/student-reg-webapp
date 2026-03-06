@@ -14,10 +14,10 @@ pipeline {
  
     environment {
         
-        SONARQUBE_HOST = "http://172.31.8.134:9000"
-        SONARQUBE_TOKEN = credentials('SonarQubeToken')
+        SONARQUBE_HOST = "65.0.123.135"
+        SONARQUBE_TOKEN = credentials('Sonarqube_Token')
         tomcatserverSSHUserName = "ec2-user"
-        tomcatSystemIP = "172.31.19.130"
+        tomcatSystemIP = "3.111.219.228"
         
     }
  
@@ -100,12 +100,12 @@ pipeline {
 
     post {
         success {
-            slackSend channel: 'lic-app-team', color: "good", message: "Jenkins Job ${env.JOB_NAME} - ${env.BUILD_NUMBER} - Success . Please heck console output at ${env.BUILD_URL}"  
+            slackSend channel: 'all-devops-team', color: "good", message: "Jenkins Job ${env.JOB_NAME} - ${env.BUILD_NUMBER} - Success . Please heck console output at ${env.BUILD_URL}"  
         }
        
         failure {
             
-            slackSend channel: 'lic-app-team', color: "danager", message: "Jenkins Job ${env.JOB_NAME} - ${env.BUILD_NUMBER} - Failed . Please Check console output at ${env.BUILD_URL}"  
+            slackSend channel: 'all-devops-team', color: "danger", message: "Jenkins Job ${env.JOB_NAME} - ${env.BUILD_NUMBER} - Failed . Please Check console output at ${env.BUILD_URL}"  
         }
        
         always {
